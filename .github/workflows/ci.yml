@@ -41,6 +41,11 @@ jobs:
             ros-jazzy-ros-gz \
             ros-jazzy-gz-ros2-control
 
+      - name: Test simulation assets
+        run: |
+          cd ros2_ws/src/rbot
+          python3 -m pytest tests -q
+
       - name: rosdep install
         run: |
           cd ros2_ws
