@@ -84,8 +84,13 @@ Open a GitHub Issue with the label `enhancement`. Describe:
 2. Run the build and lint checks locally before opening a PR:
    ```bash
    bash scripts/build.sh
+   python3 -m pytest tests -q
    cd src && ament_flake8 --max-line-length=100
    ```
+
+   The repository-level tests validate Gazebo models, worlds, and launch argument
+   forwarding. CI runs them separately because `colcon test` only discovers tests
+   registered by ROS packages.
 
 3. Open a pull request against `main`. In the PR description:
    - Reference any related issues (`Closes #42`)
